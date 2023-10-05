@@ -2,9 +2,12 @@
 import { BsBookmark } from 'react-icons/bs';
 import {  AiFillEye, AiOutlineShareAlt } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
+// import { useContext } from 'react';
+// import { AuthContext } from '../../../provider/AuthProvider';
 
 
 const Card = ({ card }) => {
+    // const {user} = useContext(AuthContext)
     const { author, image_url,_id, title, details, rating, total_view } = card;
     return (
         <div>
