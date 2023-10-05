@@ -5,6 +5,7 @@ import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
 import About from "../pages/About/About";
 import Career from "../pages/Career/Career";
+import ReadMore from "../pages/Home/ReadMore/ReadMore";
 
 export const router = createBrowserRouter([
     {
@@ -30,6 +31,11 @@ export const router = createBrowserRouter([
         {
           path:"/career",
           element:<Career></Career>
+        },
+        {
+          path:"/card/:id",
+          element:<ReadMore></ReadMore>,
+          loader:() => fetch('/news.json')
         }
 
       ]

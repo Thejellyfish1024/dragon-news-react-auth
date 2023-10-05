@@ -1,10 +1,11 @@
 /* eslint-disable react/prop-types */
 import { BsBookmark } from 'react-icons/bs';
 import {  AiFillEye, AiOutlineShareAlt } from 'react-icons/ai';
+import { Link } from 'react-router-dom';
 
 
 const Card = ({ card }) => {
-    const { author, image_url, title, details, rating, total_view } = card;
+    const { author, image_url,_id, title, details, rating, total_view } = card;
     return (
         <div>
             <div className="card card-compact bg-gray-100 ">
@@ -34,7 +35,15 @@ const Card = ({ card }) => {
                     <h2 className="card-title">{title}</h2>
                     <figure><img src={image_url} alt="Shoes" /></figure>
                     <div className="card-body">
-                        <p>{details}</p>
+                        {
+                            details.length > 200 ? 
+                            <div>
+                                <p>{details.slice(0,200)} <span>....<Link to={`/card/${_id}`} className='font-medium text-red-600'>Read more</Link></span></p>
+                                
+                            </div>
+                            :
+                            <p>{details}</p>
+                        }
                         <div className='flex justify-between items-center mt-7'>
                             <div className='flex items-center gap-2 '>
                                 <div className="rating rating-sm">
